@@ -1,0 +1,64 @@
+{
+	"name": "kitkuts",
+	"displayName": "KitKuts",
+	"description": "Grabbag of Kit's shortcuts for vscode",
+	"version": "1.0.0",
+	"publisher": "KitKennedy",
+	"license": "MIT",
+	"bugs": "https://github.com/apollokit/vscode-kitkuts/issues",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/apollokit/vscode-kitkuts"
+	},
+	"engines": {
+		"vscode": "^1.39.0"
+	},
+	"categories": [
+		"Other"
+	],
+	"activationEvents": [
+		"onCommand:kitkuts.cycleWord"
+	],
+	"main": "./out/extension.js",
+	"contributes": {
+		"commands": [
+			{
+				"command": "kitkuts.cycleWord",
+				"title": "Cycle word at cursor to next logical value (e.g. in python, True -> False -> True)"
+			}
+		],
+		"keybindings": [
+			{
+				"command": "kitkuts.cycleWord",
+				"key": "alt-z",
+				"mac": "alt-z",
+				"when": "editorTextFocus"
+			}
+		]
+	},
+	"scripts": {
+		"vscode:prepublish": "npm run compile",
+		"compile": "tsc -p ./",
+		"watch": "tsc -watch -p ./",
+		"pretest": "npm run compile && npm run lint",
+		"lint": "eslint src --ext ts",
+		"test": "node ./out/test/runTest.js"
+	},
+	"devDependencies": {
+		"@types/glob": "^7.1.1",
+		"@types/mocha": "^5.2.6",
+		"@types/node": "^10.12.21",
+		"@types/vscode": "^1.39.0",
+		"glob": "^7.1.4",
+		"mocha": "^6.1.4",
+		"typescript": "^3.3.1",
+		"tslint": "^5.12.1",
+		"vscode-test": "^1.2.0"
+	},
+	"dependencies": {
+		"vsce": "^1.79.5"
+	},
+	"extensionKind": [
+		"ui"
+	]
+}
